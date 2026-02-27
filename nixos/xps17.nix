@@ -24,6 +24,9 @@
   networking.hostName = "nixos-xps17";
   networking.networkmanager.enable = true;
 
+  time.hardwareClockInLocalTime = true;
+  time.timeZone = "America/Detroit";
+
   services.xserver = {
     enable = true;
     autoRepeatDelay = 200;
@@ -62,7 +65,9 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
-
+    wget
+    btop
+    curl
   ];
 
   system.stateVersion = "25.11"; # No touch :)

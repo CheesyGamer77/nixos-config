@@ -23,13 +23,6 @@
         inherit config;
       };
     in {
-      #homeConfigurations = {
-        #casey = home-manager.lib.homeManagerConfiguration {
-          #inherit x86Pkgs;
-          #modules = [ ./home/users/casey/casey_xps17.nix ];
-        #};
-      #};
-
       nixosConfigurations = {
         nixos-xps17 = nixos.lib.nixosSystem {
           system = "x86_64-linux";
