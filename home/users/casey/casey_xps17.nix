@@ -10,6 +10,7 @@
 
   imports = [
     ../../programs/git.nix
+    ../../programs/firefox.nix
   ];
 
   home.stateVersion = "25.11"; # No touch :)

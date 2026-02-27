@@ -62,12 +62,11 @@
     ];
   };
 
-  programs.firefox.enable = true;
-
   environment.systemPackages = with pkgs; [
     wget
     btop
     curl
+    discord
   ];
 
   system.stateVersion = "25.11"; # No touch :)
