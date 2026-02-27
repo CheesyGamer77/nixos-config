@@ -23,6 +23,8 @@
 
   networking.hostName = "nixos-xps17";
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 57621 ];  # Allow spotify local track sync
+  networking.firewall.allowedUDPPorts = [ 5353 ];  # Allow spotify connect device discovery
 
   time.hardwareClockInLocalTime = true;
   time.timeZone = "America/Detroit";
@@ -68,6 +70,7 @@
     curl
     firefox
     discord
+    spotify
   ];
 
   system.stateVersion = "25.11"; # No touch :)
