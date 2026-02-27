@@ -23,12 +23,12 @@
         inherit config;
       };
     in {
-      homeConfigurations = {
-        casey = home-manager.lib.homeManagerConfiguration {
-          inherit x86Pkgs;
-          modules = [ ./home/users/casey/casey_xps17.nix ];
-        };
-      };
+      #homeConfigurations = {
+        #casey = home-manager.lib.homeManagerConfiguration {
+          #inherit x86Pkgs;
+          #modules = [ ./home/users/casey/casey_xps17.nix ];
+        #};
+      #};
 
       nixosConfigurations = {
         nixos-xps17 = nixos.lib.nixosSystem {
@@ -36,13 +36,13 @@
           pkgs = nixosPkgs;
           modules = [
             ./nixos/xps17.nix
-            #home-manager.nixosModules.home-manager {
-              #home-manager = {
-                #extraSpecialArgs = { pkgs = x86Pkgs; };
-                #users.casey = import ./home/users/casey/casey_xps17.nix;
-                #backupFileExtension = "backup";
-              #};
-            #}
+            home-manager.nixosModules.home-manager {
+              home-manager = {
+                extraSpecialArgs = { pkgs = x86Pkgs; };
+                users.casey = import ./home/users/casey/casey_xps17.nix;
+                backupFileExtension = "backup";
+              };
+            }
           ];
         };
       };
