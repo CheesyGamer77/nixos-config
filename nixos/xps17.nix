@@ -66,6 +66,7 @@
     wget
     btop
     curl
+    firefox
     discord
   ];
 
