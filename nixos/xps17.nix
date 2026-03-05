@@ -55,9 +55,12 @@
     pulse.enable = true;
   };
 
+  programs.zsh.enable = true;
+
   users.users.casey = {
     isNormalUser = true;
     description = "CaseyCodes";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       
