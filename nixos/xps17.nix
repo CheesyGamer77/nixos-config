@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -37,7 +37,7 @@
 
   # Prevent systemd from waiting for network online (faster boot with VPNs)
   systemd.network.wait-online.enable = false;
-  boot.initrd.systemd.network.wait-online = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 
   time.hardwareClockInLocalTime = true;
   time.timeZone = "America/Detroit";
@@ -89,7 +89,7 @@
     spotify
     libreoffice-fresh
     hunspell
-    hunspellDicts.en
+    hunspellDicts.en_US
   ];
 
   system.stateVersion = "25.11"; # No touch :)
