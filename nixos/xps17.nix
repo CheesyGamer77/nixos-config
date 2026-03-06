@@ -87,6 +87,9 @@
     firefox
     discord
     spotify
+    libreoffice-fresh
+    hunspell
+    hunspellDicts.en
   ];
 
   system.stateVersion = "25.11"; # No touch :)
