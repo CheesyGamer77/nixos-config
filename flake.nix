@@ -7,20 +7,24 @@
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = { nixpkgs, nixos, home-manager, ... } @ inputs:
     let
+      overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
+
       config = { allowUnfree = true; };
 
       nixosPkgs = import nixos {
         system = "x86_64-linux";
-        inherit config;
+        inherit config overlays;
       };
 
       x86Pkgs = import nixpkgs {
         system = "x86_64-linux";
-        inherit config;
+        inherit config overlays;
       };
     in {
       nixosConfigurations = {
