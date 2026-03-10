@@ -70,14 +70,18 @@
 
   programs.zsh.enable = true;
 
+  fonts.packages = with pkgs; [
+	nerd-fonts.jetbrains-mono
+  ];
+
+  fonts.fontconfig.enable = true;
+
+
   users.users.casey = {
     isNormalUser = true;
     description = "CaseyCodes";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      
-    ];
   };
 
   environment.systemPackages = with pkgs; [
