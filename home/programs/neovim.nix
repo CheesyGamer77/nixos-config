@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
@@ -10,6 +10,7 @@
     coc.enable = false;
     withNodeJs = true;
 	extraPackages = with pkgs; [
+	  silicon
 	  lua-language-server
 	  nixd
 	];
