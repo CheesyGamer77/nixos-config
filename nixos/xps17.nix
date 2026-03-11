@@ -24,16 +24,23 @@
   networking.hostName = "nixos-xps17";
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
-  networking.firewall.enable = true;
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
-  networking.firewall.allowedTCPPorts = [ 57621 ];  # Allow spotify local track sync
-  networking.firewall.allowedUDPPorts = [
-    5353  # Spotify connect device discovery
-    config.services.tailscale.port  # tailscale  udp
-  ];
+
+  networking.firewall = {
+	enable = true;
+	trustedInterfaces = [ "tailscale0" ];
+	allowedTCPPorts = [
+	  57621  # Spotify local track sync
+	];
+	allowedUDPPorts = [
+	  5353  # Spotify connect device discovery
+	  config.services.tailscale.port  # Tailscale UDP
+	];
+  };
  
   # Force tailscale to use nftables (recommended for modern setups)
-  systemd.services.tailscaled.serviceConfig.Environment = [ "TS_DEBUG_FIREWALL_MODE=nftables" ];
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
 
   # Prevent systemd from waiting for network online (faster boot with VPNs)
   systemd.network.wait-online.enable = false;
@@ -75,7 +82,6 @@
   ];
 
   fonts.fontconfig.enable = true;
-
 
   users.users.casey = {
     isNormalUser = true;

@@ -9,10 +9,11 @@
     vimAlias = true;
     coc.enable = false;
     withNodeJs = true;
-	extraPackages = with pkgs; [
-	  silicon
-	  lua-language-server
-	  nixd
-	];
-  };
+	
+		extraPackages = with pkgs; [
+	  	silicon
+	  	lua-language-server
+	  	nixd
+		];
+	};
 }
