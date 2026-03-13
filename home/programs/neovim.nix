@@ -14,6 +14,7 @@
 	  	silicon
 	  	lua-language-server
 	  	nixd
+			vtsls
 		];
 	};
 }

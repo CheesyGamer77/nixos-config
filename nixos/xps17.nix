@@ -78,7 +78,7 @@
   programs.zsh.enable = true;
 
   fonts.packages = with pkgs; [
-	nerd-fonts.jetbrains-mono
+		nerd-fonts.jetbrains-mono
   ];
 
   fonts.fontconfig.enable = true;
@@ -100,6 +100,9 @@
     libreoffice-fresh
     hunspell
     hunspellDicts.en_US
+		nodejs_24
+		pnpm
+		alacritty
   ];
 
   system.stateVersion = "25.11"; # No touch :)

@@ -9,6 +9,8 @@
     home-manager.url = "github:nix-community/home-manager/master";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+		hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { nixpkgs, nixos, home-manager, ... } @ inputs:
