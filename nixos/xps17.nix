@@ -103,6 +103,7 @@
 		nodejs_24
 		pnpm
 		alacritty
+		openssl
   ];
 
   system.stateVersion = "25.11"; # No touch :)

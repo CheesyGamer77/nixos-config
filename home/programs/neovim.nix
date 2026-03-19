@@ -15,6 +15,7 @@
 	  	lua-language-server
 	  	nixd
 			vtsls
+			prisma-language-server
 		];
 	};
 }
