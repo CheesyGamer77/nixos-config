@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 
 {
   programs.home-manager.enable = true;
@@ -9,9 +9,11 @@
   home.packages = [ ];
 
   imports = [
-    ../../programs/git.nix
+    ../../programs/alacritty.nix
+		../../programs/git.nix
     ../../programs/zsh.nix
     ../../programs/neovim.nix
+		../../programs/tmux.nix
   ];
 
   home.stateVersion = "25.11"; # No touch :)

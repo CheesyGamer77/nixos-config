@@ -21,20 +21,22 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+	services.flatpak.enable = true;
+
   networking.hostName = "nixos-xps17";
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
 
   networking.firewall = {
-	enable = true;
-	trustedInterfaces = [ "tailscale0" ];
-	allowedTCPPorts = [
-	  57621  # Spotify local track sync
-	];
-	allowedUDPPorts = [
-	  5353  # Spotify connect device discovery
-	  config.services.tailscale.port  # Tailscale UDP
-	];
+		enable = true;
+		trustedInterfaces = [ "tailscale0" ];
+		allowedTCPPorts = [
+		  57621  # Spotify local track sync
+		];
+		allowedUDPPorts = [
+		  5353  # Spotify connect device discovery
+		  config.services.tailscale.port  # Tailscale UDP
+		];
   };
  
   # Force tailscale to use nftables (recommended for modern setups)
@@ -76,7 +78,6 @@
   };
 
   programs.zsh.enable = true;
-
   fonts.packages = with pkgs; [
 		nerd-fonts.jetbrains-mono
   ];
@@ -104,6 +105,8 @@
 		pnpm
 		alacritty
 		openssl
+		tmux
+		mgba
   ];
 
   system.stateVersion = "25.11"; # No touch :)
