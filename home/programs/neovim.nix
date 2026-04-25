@@ -16,6 +16,7 @@
 	  	nixd
 			vtsls
 			prisma-language-server
+			jdt-language-server
 		];
 	};
 }
